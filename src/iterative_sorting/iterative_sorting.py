@@ -22,14 +22,14 @@ def selection_sort( arr ):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
 
-  swap_count = 0
-  while swap_count > 0:
+  swap_occured = True
 
+  while swap_occured:
+    # set to false to stop loop if no swap occurs
+    swap_occured = False
+    
     # Loop through array
-    for i in range(0, len(arr) -1):
-
-      # set counter to keep track of swaps
-      swap_count = 0
+    for i in range(0, len(arr)-1):
       current = i
       neighbor = i+1
 
@@ -37,13 +37,8 @@ def bubble_sort(arr):
       if arr[current] > arr[neighbor]:
         # If elements in wrong positions, swap them
         arr[current], arr[neighbor] = arr[neighbor], arr[current]
-        # If swap occurs, add 1 to swap count
-        swap_count +=1
-      elif arr[current] < arr[neighbor]:
-        continue
-
-      #print(arr)
-      #print(swap_count)
+        # If swap occurs, change boolean
+        swap_occured = True
 
     # If no swaps performed, stop. Else go back to beginning and repeat.
 
